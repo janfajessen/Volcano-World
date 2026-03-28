@@ -1,4 +1,6 @@
-# 🌋 Volcano World — Home Assistant Integration
+# 🌋 Volcano World 🌋 <br> Home Assistant Integration
+
+<img src="https://raw.githubusercontent.com/janfajessen/Volcano-World----Home-Assistant-Integration/e884d2b81a68b9b99160982edcb07f35a255420c/Volcano_World.png" alt="Volcano World" width="400">
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 [![HA Version](https://img.shields.io/badge/Home%20Assistant-2024.1+-blue.svg)](https://www.home-assistant.io)
@@ -35,6 +37,8 @@ A Home Assistant integration that tracks active and erupting volcanoes worldwide
 4. Restart Home Assistant (first time only)
 5. **Settings → Devices & Services → Add Integration → "Volcano World"**
 
+<img src="https://raw.githubusercontent.com/janfajessen/Volcano-World----Home-Assistant-Integration/e884d2b81a68b9b99160982edcb07f35a255420c/Volcano_World.png" alt="Volcano World" width="100">
+
 ## Manual Installation
 
 Copy the `volcano_world` folder into your `custom_components` directory:
@@ -54,13 +58,11 @@ config/
         ├── strings.json
         ├── volcano_data.py
         └── translations/
-            ├── ca.json
-            ├── de.json
             ├── en.json
             ├── es.json
-            ├── fr.json
-            ├── it.json
-            └── pt.json
+            ├── ca.json
+            ├── de.json
+            └── ...
 ```
 
 ---
@@ -283,57 +285,6 @@ All binary sensors use `device_class: safety`.
 
 ---
 
-## FIRMS NASA Fires — Example Automations
-
-These automations require the [firms_nasa_fires](https://github.com/janfajessen/firms_nasa_fires) custom integration.
-
-### 6 — Fire detected within your FIRMS radius
-
-```yaml
-- alias: "FIRMS — Fire detected nearby"
-  triggers:
-    - trigger: geo_location
-      source: firms_nasa_fires
-      zone: zone.home
-      event: enter
-  actions:
-    - action: notify.telegram_jan
-      data:
-        title: "🔥 Fire Detected Nearby"
-        message: >
-          NASA FIRMS detected a fire near your location.
-          Distance: {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }}
-          {% if state_attr(trigger.entity_id, 'frp') %}
-          Fire Radiative Power: {{ state_attr(trigger.entity_id, 'frp') }} MW
-          {% endif %}
-          {% if state_attr(trigger.entity_id, 'brightness') %}
-          Brightness: {{ state_attr(trigger.entity_id, 'brightness') }} K
-          {% endif %}
-```
-
-### 7 — High intensity fire (FRP > 100 MW)
-
-```yaml
-- alias: "FIRMS — High intensity fire nearby"
-  triggers:
-    - trigger: geo_location
-      source: firms_nasa_fires
-      zone: zone.home
-      event: enter
-  conditions:
-    - condition: template
-      value_template: "{{ state_attr(trigger.entity_id, 'frp') | float(0) > 100 }}"
-  actions:
-    - action: notify.telegram_jan
-      data:
-        title: "🔥🔥 HIGH INTENSITY FIRE NEARBY"
-        message: >
-          NASA FIRMS: HIGH INTENSITY fire detected!
-          Distance: {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }}
-          FRP: {{ state_attr(trigger.entity_id, 'frp') }} MW
-          Satellite: {{ state_attr(trigger.entity_id, 'satellite') | default('unknown') }}
-          ⚠️ Check local emergency services immediately.
-```
 
 ---
 
