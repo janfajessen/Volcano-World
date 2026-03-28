@@ -1,2 +1,371 @@
-# Volcano-World----Home-Assistant-Integration
+# 🌋 Volcano World — Home Assistant Integration
+
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+[![HA Version](https://img.shields.io/badge/Home%20Assistant-2024.1+-blue.svg)](https://www.home-assistant.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 A Home Assistant integration that tracks active and erupting volcanoes worldwide. Every active volcano appears as a pin on the HA map. Sensors and binary sensors enable automations and dashboards.
+
+**Data sources — no API key required:**
+- 🏛️ [Smithsonian Global Volcanism Program (GVP)](https://volcano.si.edu) — global eruption database (~45 continuously active volcanoes)
+- 🇺🇸 [USGS Volcano Hazards HANS API](https://volcanoes.usgs.gov) — official US alert levels (GREEN / YELLOW / ORANGE / RED)
+
+---
+
+## Features
+
+| Feature | Detail |
+|---|---|
+| 🗺️ Map (GeoLocation) | Each active volcano as a `geo_location` entity, visible on the HA map card |
+| 📍 Location filter | Home location, custom map point, or entire world |
+| 📏 km / miles | Distance unit selectable during setup and in options |
+| 📰 Weekly report text | Narrative description of activity for volcanoes in the weekly report |
+| 🔄 Live data | Configurable update interval (15 min minimum) |
+| ⚙️ Reconfigure | Gear icon changes all settings without restarting HA |
+| 🌍 Built-in database | ~100 volcanoes with coordinates, country, and type |
+| 🌐 Multilingual | CA · DE · EN · ES · FR · IT · PT |
+
+---
+
+## Installation via HACS
+
+1. Open HACS → **Integrations** → ⋮ → **Custom Repositories**
+2. Add `https://github.com/janfajessen/volcano_world` as type **Integration**
+3. Search **Volcano World** and install
+4. Restart Home Assistant (first time only)
+5. **Settings → Devices & Services → Add Integration → "Volcano World"**
+
+## Manual Installation
+
+Copy the `volcano_world` folder into your `custom_components` directory:
+
+```
+config/
+└── custom_components/
+    └── volcano_world/
+        ├── __init__.py
+        ├── binary_sensor.py
+        ├── config_flow.py
+        ├── const.py
+        ├── coordinator.py
+        ├── geo_location.py
+        ├── manifest.json
+        ├── sensor.py
+        ├── strings.json
+        ├── volcano_data.py
+        └── translations/
+            ├── ca.json
+            ├── de.json
+            ├── en.json
+            ├── es.json
+            ├── fr.json
+            ├── it.json
+            └── pt.json
+```
+
+---
+
+## Configuration
+
+### Step 1 — Location filter
+
+| Mode | Description |
+|---|---|
+| **Home Assistant location** | Filters volcanoes within a radius of your HA `zone.home` coordinates |
+| **Custom location** | Opens an interactive map — click anywhere to set the filter center |
+| **Entire world** | Shows all ~45 currently active volcanoes worldwide, no filter |
+
+### Step 2 — Advanced options
+
+| Option | Default | Description |
+|---|---|---|
+| Distance unit | km | Choose **km** or **miles (mi)** — affects all distances in entities and attributes |
+| Radius | 500 km / 311 mi | Maximum distance from the reference point (Home / Custom modes only) |
+| Update interval | 60 min | How often data is fetched. Minimum 15 min |
+| Smithsonian GVP | ✅ | Fetches the global current eruptions list |
+| USGS HANS | ✅ | Enriches data with official US alert levels |
+
+> All options are available from the **gear icon** after installation — no restart needed.
+
+---
+
+## Entities Created
+
+### GeoLocation — Map entities
+
+Each active volcano generates one `geo_location` entity visible on the HA map.
+
+**Entity ID format:** `geo_location.volcano_world_etna`, `geo_location.volcano_world_stromboli`, etc.
+
+To display them on a map card, add this to your dashboard:
+
+```yaml
+type: map
+geo_location_sources:
+  - volcano_world
+```
+
+**Available attributes on each geo_location entity:**
+
+| Attribute | Example | Description |
+|---|---|---|
+| `country` | `Italy` | Country where the volcano is located |
+| `alert_level` | `ORANGE` | USGS alert level: RED / ORANGE / YELLOW / GREEN / UNASSIGNED |
+| `aviation_color` | `ORANGE` | Aviation color code from USGS |
+| `eruption_start` | `2022 Nov 27` | Date the current eruption began (GVP data) |
+| `volcano_type` | `Shield volcano` | Geological type |
+| `in_weekly_report` | `true` | Appears in this week's GVP/USGS Weekly Volcanic Activity Report |
+| `weekly_report_text` | `"Explosive activity continued..."` | Narrative description from the weekly report (English only, up to 600 chars). `null` if not in report |
+| `data_source` | `gvp` | Which source provided this entry (`gvp` or `usgs`) |
+| `gvp_number` | `211060` | Smithsonian GVP identifier |
+| `url` | `https://volcano.si.edu/...` | Direct link to volcano profile page |
+| `distance_km` or `distance_mi` | `1257.5` | Distance from your reference location in your chosen unit |
+
+**Icon by alert level:**
+
+| Alert | Icon | Meaning |
+|---|---|---|
+| 🔴 RED / WARNING | `mdi:volcano` | Major eruption, lava flows or strong explosions |
+| 🟠 ORANGE / WATCH | `mdi:volcano-outline` | Eruption with moderate activity or elevated unrest |
+| 🟡 YELLOW / ADVISORY | `mdi:alert-circle-outline` | Elevated unrest, gas emissions, minor activity |
+| 🟢 GREEN / NORMAL / UNASSIGNED | `mdi:image-filter-hdr` | Background activity or no USGS alert assigned |
+
+> **Note on UNASSIGNED:** USGS alert levels only cover volcanoes monitored by USGS (mainly US territory). Most GVP-sourced volcanoes (Etna, Stromboli, Indonesian volcanoes, etc.) show `UNASSIGNED` — this does **not** mean they are inactive. Use `in_weekly_report` and `weekly_report_text` to assess real-time activity for non-US volcanoes.
+
+---
+
+### Sensors
+
+All sensor entity IDs follow the pattern `sensor.volcano_world_*`.
+
+| Entity | Example state | Description |
+|---|---|---|
+| `sensor.volcano_world_active_volcanoes` | `45` | Total active volcanoes in the current dataset. Attribute `volcanoes` lists all with name, country, alert level, distance, and weekly report status |
+| `sensor.volcano_world_in_weekly_report` | `26` | Volcanoes featured in the current Smithsonian/USGS Weekly Volcanic Activity Report (updated every Thursday) |
+| `sensor.volcano_world_elevated_alert_volcanoes` | `3` | Volcanoes with alert level YELLOW or higher |
+| `sensor.volcano_world_highest_alert_level` | `ORANGE` | Highest current alert level globally. Useful for conditional cards and automations |
+| `sensor.volcano_world_nearby_active_volcanoes` | `0` | Active volcanoes within your configured radius. Attribute `nearby_volcanoes` lists them sorted by distance |
+| `sensor.volcano_world_closest_active_volcano` | `Etna` | Name of the closest active volcano to your reference location. Attributes include distance, alert level, eruption start, and URL |
+| `sensor.volcano_world_most_dangerous_volcano` | `Kilauea` | Name of the volcano with the highest current alert level. Attributes include alert level, country, distance, and URL |
+
+---
+
+### Binary Sensors
+
+All binary sensor entity IDs follow the pattern `binary_sensor.volcano_world_*`.
+
+| Entity | ON when... | Attributes |
+|---|---|---|
+| `binary_sensor.volcano_world_volcanic_activity_nearby` | Any active volcano is within your configured radius | `nearby_volcanoes` list sorted by distance, `radius_km` or `radius_mi` |
+| `binary_sensor.volcano_world_elevated_volcano_nearby` | Any volcano with YELLOW+ alert is within your radius | Same as above, filtered to elevated only |
+| `binary_sensor.volcano_world_global_volcano_warning` | Any volcano anywhere has RED or WARNING alert | `warning_volcanoes` list with name, country, alert level, distance |
+
+All binary sensors use `device_class: safety`.
+
+---
+
+## Example Automations
+
+### 1 — Alert for Spanish volcanoes (Teide / Cumbre Vieja)
+
+```yaml
+- alias: "Volcano World — Spanish volcano alert"
+  triggers:
+    - trigger: state
+      entity_id:
+        - geo_location.volcano_world_teide
+        - geo_location.volcano_world_cumbre_vieja
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🌋 Spanish Volcano Alert"
+        message: >
+          {{ trigger.to_state.name }}
+          — Alert: {{ state_attr(trigger.entity_id, 'alert_level') | default('UNASSIGNED') }}
+          {% if state_attr(trigger.entity_id, 'in_weekly_report') %}| In weekly report ✅{% endif %}
+          {% if state_attr(trigger.entity_id, 'weekly_report_text') %}
+          {{ state_attr(trigger.entity_id, 'weekly_report_text') }}
+          {% endif %}
+          | {{ state_attr(trigger.entity_id, 'url') }}
+```
+
+### 2 — New volcano appears in active list
+
+```yaml
+- alias: "Volcano World — Active count increased (new activity)"
+  triggers:
+    - trigger: state
+      entity_id: sensor.volcano_world_active_volcanoes
+  conditions:
+    - condition: template
+      value_template: >
+        {{ trigger.to_state.state | int(0) > trigger.from_state.state | int(0) }}
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🌋 New Volcanic Activity (+{{ trigger.to_state.state | int(0) - trigger.from_state.state | int(0) }})"
+        message: >
+          Active volcanoes: {{ trigger.from_state.state }} → {{ trigger.to_state.state }}
+          {% set vlist = state_attr('sensor.volcano_world_active_volcanoes', 'volcanoes') %}
+          {% if vlist %}
+          {% for v in vlist[:5] %}• {{ v.name }} ({{ v.country }}) — {{ v.alert_level }}
+          {% endfor %}
+          {% if vlist | length > 5 %}...and {{ vlist | length - 5 }} more{% endif %}
+          {% endif %}
+```
+
+### 3 — Volcanic activity within configured radius
+
+```yaml
+- alias: "Volcano World — Activity within radius"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.volcano_world_volcanic_activity_nearby
+      to: "on"
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "⚠️ Volcanic Activity Nearby"
+        message: >
+          {% set volcanoes = state_attr('binary_sensor.volcano_world_volcanic_activity_nearby', 'nearby_volcanoes') %}
+          {% for v in volcanoes %}
+          • {{ v.name }} ({{ v.country }}) — {{ v.distance_km }} km — {{ v.alert_level }}
+          {% endfor %}
+```
+
+### 4 — Volcano within hardcoded 3000 km (template, any radius)
+
+```yaml
+- alias: "Volcano World — Volcano within 3000 km"
+  triggers:
+    - trigger: template
+      value_template: >
+        {% set ns = namespace(found=false) %}
+        {% set vlist = state_attr('sensor.volcano_world_active_volcanoes', 'volcanoes') %}
+        {% if vlist %}
+          {% for v in vlist %}
+            {% if v.distance_km is not none and v.distance_km | float(99999) <= 3000 %}
+              {% set ns.found = true %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {{ ns.found }}
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "⚠️ Volcano within 3000 km"
+        message: >
+          {% set vlist = state_attr('sensor.volcano_world_active_volcanoes', 'volcanoes') %}
+          {% for v in vlist if v.distance_km is not none and v.distance_km | float(99999) <= 3000 %}
+          • {{ v.name }} ({{ v.country }}) — {{ v.distance_km }} km — {{ v.alert_level }}
+          {% endfor %}
+```
+
+### 5 — Global RED / WARNING alert
+
+```yaml
+- alias: "Volcano World — Global RED alert"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.volcano_world_global_volcano_warning
+      to: "on"
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🔴 GLOBAL VOLCANO WARNING"
+        message: >
+          {% set v = state_attr('binary_sensor.volcano_world_global_volcano_warning', 'warning_volcanoes') %}
+          {% for vol in v %}
+          🌋 {{ vol.name }} ({{ vol.country }}) — {{ vol.alert_level }}
+          {% if vol.distance_km %}| {{ vol.distance_km }} km from home{% endif %}
+          {% endfor %}
+```
+
+---
+
+## FIRMS NASA Fires — Example Automations
+
+These automations require the [firms_nasa_fires](https://github.com/janfajessen/firms_nasa_fires) custom integration.
+
+### 6 — Fire detected within your FIRMS radius
+
+```yaml
+- alias: "FIRMS — Fire detected nearby"
+  triggers:
+    - trigger: geo_location
+      source: firms_nasa_fires
+      zone: zone.home
+      event: enter
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🔥 Fire Detected Nearby"
+        message: >
+          NASA FIRMS detected a fire near your location.
+          Distance: {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }}
+          {% if state_attr(trigger.entity_id, 'frp') %}
+          Fire Radiative Power: {{ state_attr(trigger.entity_id, 'frp') }} MW
+          {% endif %}
+          {% if state_attr(trigger.entity_id, 'brightness') %}
+          Brightness: {{ state_attr(trigger.entity_id, 'brightness') }} K
+          {% endif %}
+```
+
+### 7 — High intensity fire (FRP > 100 MW)
+
+```yaml
+- alias: "FIRMS — High intensity fire nearby"
+  triggers:
+    - trigger: geo_location
+      source: firms_nasa_fires
+      zone: zone.home
+      event: enter
+  conditions:
+    - condition: template
+      value_template: "{{ state_attr(trigger.entity_id, 'frp') | float(0) > 100 }}"
+  actions:
+    - action: notify.telegram_jan
+      data:
+        title: "🔥🔥 HIGH INTENSITY FIRE NEARBY"
+        message: >
+          NASA FIRMS: HIGH INTENSITY fire detected!
+          Distance: {{ trigger.to_state.state }} {{ trigger.to_state.attributes.unit_of_measurement }}
+          FRP: {{ state_attr(trigger.entity_id, 'frp') }} MW
+          Satellite: {{ state_attr(trigger.entity_id, 'satellite') | default('unknown') }}
+          ⚠️ Check local emergency services immediately.
+```
+
+---
+
+## Recommended Logger
+
+Add to `configuration.yaml` to debug:
+
+```yaml
+logger:
+  default: warning
+  logs:
+    custom_components.volcano_world: debug
+```
+
+---
+
+## Translations
+
+The integration UI is available in: **CA · DE · EN · ES · FR · IT · PT**
+
+Home Assistant supports approximately **60+ languages** in its frontend. If you want to contribute a translation for your language, copy `translations/en.json`, translate all the values (keep all keys and `{placeholders}` unchanged), and name the file with the correct [BCP 47 language tag](https://www.iana.org/assignments/language-subtag-registry) (e.g. `nl.json`, `pl.json`, `zh-Hans.json`).
+
+[DeepL](https://deepl.com/translator) works well for this — paste the JSON directly and it respects the key structure.
+
+---
+
+## Data & License
+
+Eruption data provided by the [Smithsonian Institution Global Volcanism Program](https://volcano.si.edu) and the [USGS Volcano Hazards Program](https://volcanoes.usgs.gov). Both are US government / public-domain sources with no usage restrictions.
+
+Integration code licensed under **MIT**. See [LICENSE](LICENSE).
+
+---
+
+*Volcano World is an independent community integration and is not affiliated with Smithsonian Institution or USGS.*
