@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Svět sopek",
+        "description": "Nakonfigurujte, které aktivní sopky chcete sledovat.\n\nZdroje dat: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — není vyžadován klíč API.",
+        "data": {
+          "location_mode": "Filtr umístění",
+          "radius_km": "Poloměr (km)",
+          "update_interval": "Interval aktualizace (min)",
+          "source_gvp": "Smithsonian GVP (globální, ~45 aktivních sopek)",
+          "source_usgs": "USGS HANS (USA + úrovně varování)",
+          "unit": "Jednotka vzdálenosti"
+        },
+        "data_description": {
+          "location_mode": "Zvolte 'Domov' pro filtrování podle vaší HA polohy, 'Vlastní' pro výběr bodu na mapě, nebo 'Svět' pro zobrazení všech aktivních sopek na světě.",
+          "radius_km": "Používá se pouze v režimu 'Domov' nebo 'Vlastní'. V režimu 'Svět' se ignoruje."
+        }
+      },
+      "custom_location": {
+        "title": "Vyberte své referenční umístění",
+        "description": "Kliknutím na mapu nastavte střed poloměru filtru.",
+        "data": {
+          "location": "Referenční umístění"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nelze se připojit ke zdrojům dat. Zkontrolujte své internetové připojení.",
+      "no_data": "Ze žádného zdroje se nepodařilo získat data o aktivních sopkách.",
+      "both_sources_disabled": "Musí být povolen alespoň jeden zdroj dat."
+    },
+    "abort": {
+      "already_configured": "Svět sopek je již nakonfigurován."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Svět sopek",
+        "description": "Aktualizujte nastavení filtru a zdrojů dat.",
+        "data": {
+          "location_mode": "Filtr umístění",
+          "radius_km": "Poloměr (km)",
+          "update_interval": "Interval aktualizace (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Jednotka vzdálenosti"
+        }
+      },
+      "custom_location": {
+        "title": "Aktualizovat referenční umístění",
+        "data": {
+          "location": "Referenční umístění"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktivní sopky"
+      },
+      "weekly_report_count": {
+        "name": "V týdenní zprávě"
+      },
+      "elevated_count": {
+        "name": "Sopky se zvýšeným varováním"
+      },
+      "highest_alert": {
+        "name": "Nejvyšší úroveň varování"
+      },
+      "nearby_count": {
+        "name": "Aktivní sopky v okolí"
+      },
+      "closest_volcano": {
+        "name": "Nejbližší aktivní sopka"
+      },
+      "most_dangerous_volcano": {
+        "name": "Nejnebezpečnější sopka"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Sopečná aktivita v okolí"
+      },
+      "elevated_nearby": {
+        "name": "Sopka se zvýšeným varováním v okolí"
+      },
+      "warning_global": {
+        "name": "Globální varování před sopkami"
+      }
+    }
+  }
+}
