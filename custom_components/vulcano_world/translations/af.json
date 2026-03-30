@@ -1,95 +1,95 @@
 {
-    "config": {
-      "step": {
-        "user": {
-          "title": "Volcano World",
-          "description": "Configure which active volcanoes to monitor.\n\nData sources: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — no API key required.",
-          "data": {
-            "location_mode": "Location filter",
-            "radius_km": "Radius (km)",
-            "update_interval": "Update interval (min)",
-            "source_gvp": "Smithsonian GVP (global, ~45 active volcanoes)",
-            "source_usgs": "USGS HANS (US + alert levels)",
-            "unit": "Distance unit"
-          },
-          "data_description": {
-            "location_mode": "Choose 'Home' to filter by your HA location, 'Custom' to pick a point on the map, or 'World' to show all active volcanoes globally.",
-            "radius_km": "Only used in 'Home' or 'Custom' mode. Ignored in 'World' mode."
-          }
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vulkaanwêreld",
+        "description": "Stel op watter aktiewe vulkane gemonitor moet word.\n\nDatabronne: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — geen API-sleutel nodig nie.",
+        "data": {
+          "location_mode": "Lokasiefilter",
+          "radius_km": "Radius (km)",
+          "update_interval": "Opdateringsinterval (min)",
+          "source_gvp": "Smithsonian GVP (wêreldwyd, ~45 aktiewe vulkane)",
+          "source_usgs": "USGS HANS (VS + waarskuwingsvlakke)",
+          "unit": "Afstandeenheid"
         },
-        "custom_location": {
-          "title": "Pick your reference location",
-          "description": "Click the map to set the center of the filter radius.",
-          "data": {
-            "location": "Reference location"
-          }
+        "data_description": {
+          "location_mode": "Kies 'Tuis' om volgens jou HA-lokasie te filter, 'Aangepas' om 'n punt op die kaart te kies, of 'Wêreld' om alle aktiewe vulkane wêreldwyd te wys.",
+          "radius_km": "Slegs gebruik in 'Tuis' of 'Aangepas'-modus. Geïgnoreer in 'Wêreld'-modus."
         }
       },
-      "error": {
-        "cannot_connect": "Could not connect to data sources. Check your internet connection.",
-        "no_data": "No active volcano data could be retrieved from any source.",
-        "both_sources_disabled": "At least one data source must be enabled."
-      },
-      "abort": {
-        "already_configured": "Volcano World is already configured."
-      }
-    },
-    "options": {
-      "step": {
-        "init": {
-          "title": "Volcano World",
-          "description": "Update filter and data source preferences.",
-          "data": {
-            "location_mode": "Location filter",
-            "radius_km": "Radius (km)",
-            "update_interval": "Update interval (min)",
-            "source_gvp": "Smithsonian GVP",
-            "source_usgs": "USGS HANS",
-            "unit": "Distance unit"
-          }
-        },
-        "custom_location": {
-          "title": "Update reference location",
-          "data": {
-            "location": "Reference location"
-          }
+      "custom_location": {
+        "title": "Kies jou verwysingslokasie",
+        "description": "Klik op die kaart om die middelpunt van die filterradius te stel.",
+        "data": {
+          "location": "Verwysingslokasie"
         }
       }
     },
-    "entity": {
-      "sensor": {
-        "active_count": {
-          "name": "Active Volcanoes"
-        },
-        "weekly_report_count": {
-          "name": "In Weekly Report"
-        },
-        "elevated_count": {
-          "name": "Elevated Alert Volcanoes"
-        },
-        "highest_alert": {
-          "name": "Highest Alert Level"
-        },
-        "nearby_count": {
-          "name": "Nearby Active Volcanoes"
-        },
-        "closest_volcano": {
-          "name": "Closest Active Volcano"
-        },
-        "most_dangerous_volcano": {
-          "name": "Most Dangerous Volcano"
+    "error": {
+      "cannot_connect": "Kon nie met databronne verbind nie. Kontroleer jou internetverbinding.",
+      "no_data": "Geen aktiewe vulkaandata kon van enige bron verkry word nie.",
+      "both_sources_disabled": "Ten minste een databron moet geaktiveer wees."
+    },
+    "abort": {
+      "already_configured": "Vulkaanwêreld is reeds opgestel."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vulkaanwêreld",
+        "description": "Werk filter- en databronvoorkeure by.",
+        "data": {
+          "location_mode": "Lokasiefilter",
+          "radius_km": "Radius (km)",
+          "update_interval": "Opdateringsinterval (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Afstandeenheid"
         }
       },
-      "binary_sensor": {
-        "activity_nearby": {
-          "name": "Volcanic Activity Nearby"
-        },
-        "elevated_nearby": {
-          "name": "Elevated Volcano Nearby"
-        },
-        "warning_global": {
-          "name": "Global Volcano Warning"
+      "custom_location": {
+        "title": "Werk verwysingslokasie by",
+        "data": {
+          "location": "Verwysingslokasie"
         }
       }
     }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktiewe Vulkane"
+      },
+      "weekly_report_count": {
+        "name": "In Weeklikse Verslag"
+      },
+      "elevated_count": {
+        "name": "Vulkane met Verhoogde Waarskuwing"
+      },
+      "highest_alert": {
+        "name": "Hoogste Waarskuwingsvlak"
+      },
+      "nearby_count": {
+        "name": "Aktiewe Vulkane Naby"
+      },
+      "closest_volcano": {
+        "name": "Naaste Aktiewe Vulkaan"
+      },
+      "most_dangerous_volcano": {
+        "name": "Gevaarlikste Vulkaan"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Vulkaniese Aktiwiteit Naby"
+      },
+      "elevated_nearby": {
+        "name": "Verhoogde Vulkaan Naby"
+      },
+      "warning_global": {
+        "name": "Globale Vulkaanwaarskuwing"
+      }
+    }
   }
+}
