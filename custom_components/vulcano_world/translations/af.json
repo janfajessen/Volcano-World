@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Kies 'Tuis' om volgens jou HA-lokasie te filter, 'Aangepas' om 'n punt op die kaart te kies, of 'Wêreld' om alle aktiewe vulkane wêreldwyd te wys.",
-          "radius_km": "Slegs gebruik in 'Tuis' of 'Aangepas'-modus. Geïgnoreer in 'Wêreld'-modus."
+          "radius_km": "Reeks: 50–20 000 km · 31–12 427 myl"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Afstandeenheid"
+        },
+        "data_description": {
+          "radius_km": "Reeks: 50–20 000 km · 31–12 427 myl"
         }
       },
       "custom_location": {
