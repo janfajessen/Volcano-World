@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Zvolte 'Domov' pro filtrování podle vaší HA polohy, 'Vlastní' pro výběr bodu na mapě, nebo 'Svět' pro zobrazení všech aktivních sopek na světě.",
-          "radius_km": "Používá se pouze v režimu 'Domov' nebo 'Vlastní'. V režimu 'Svět' se ignoruje."
+          "radius_km": "Rozsah: 50–20 000 km · 31–12 427 mil"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Jednotka vzdálenosti"
+        },
+        "data_description": {
+          "radius_km": "Rozsah: 50–20 000 km · 31–12 427 mil"
         }
       },
       "custom_location": {
