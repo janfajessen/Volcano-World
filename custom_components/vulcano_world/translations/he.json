@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "עולם הרי הגעש",
+        "description": "קבע אילו הרי געש פעילים לנטר.\n\nמקורות נתונים: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — אין צורך במפתח API.",
+        "data": {
+          "location_mode": "מסנן מיקום",
+          "radius_km": "רדיוס (ק\"מ)",
+          "update_interval": "מרווח עדכון (דקות)",
+          "source_gvp": "Smithsonian GVP (עולמי, ~45 הרי געש פעילים)",
+          "source_usgs": "USGS HANS (ארה\"ב + רמות התראה)",
+          "unit": "יחידת מרחק"
+        },
+        "data_description": {
+          "location_mode": "בחר 'בית' לסינון לפי מיקום ה-HA שלך, 'מותאם אישית' לבחירת נקודה במפה, או 'עולם' להצגת כל הרי הגעש הפעילים בעולם.",
+          "radius_km": "משמש רק במצב 'בית' או 'מותאם אישית'. מתעלם במצב 'עולם'."
+        }
+      },
+      "custom_location": {
+        "title": "בחר את מיקום הייחוס שלך",
+        "description": "לחץ על המפה כדי להגדיר את מרכז רדיוס המסנן.",
+        "data": {
+          "location": "מיקום ייחוס"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "לא ניתן להתחבר למקורות הנתונים. בדוק את חיבור האינטרנט שלך.",
+      "no_data": "לא ניתן היה לאחזר נתוני הרי געש פעילים מאף מקור.",
+      "both_sources_disabled": "יש להפעיל לפחות מקור נתונים אחד."
+    },
+    "abort": {
+      "already_configured": "עולם הרי הגעש כבר מוגדר."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "עולם הרי הגעש",
+        "description": "עדכן העדפות מסנן ומקור נתונים.",
+        "data": {
+          "location_mode": "מסנן מיקום",
+          "radius_km": "רדיוס (ק\"מ)",
+          "update_interval": "מרווח עדכון (דקות)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "יחידת מרחק"
+        }
+      },
+      "custom_location": {
+        "title": "עדכן מיקום ייחוס",
+        "data": {
+          "location": "מיקום ייחוס"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "הרי געש פעילים"
+      },
+      "weekly_report_count": {
+        "name": "בדוח השבועי"
+      },
+      "elevated_count": {
+        "name": "הרי געש בהתראה מוגברת"
+      },
+      "highest_alert": {
+        "name": "רמת ההתראה הגבוהה ביותר"
+      },
+      "nearby_count": {
+        "name": "הרי געש פעילים בקרבת מקום"
+      },
+      "closest_volcano": {
+        "name": "הר הגעש הפעיל הקרוב ביותר"
+      },
+      "most_dangerous_volcano": {
+        "name": "הר הגעש המסוכן ביותר"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "פעילות געשית בקרבת מקום"
+      },
+      "elevated_nearby": {
+        "name": "הר געש בהתראה מוגברת בקרבת מקום"
+      },
+      "warning_global": {
+        "name": "אזהרת הר געש עולמית"
+      }
+    }
+  }
+}
