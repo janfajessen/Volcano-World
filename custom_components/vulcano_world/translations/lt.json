@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Pasirinkite 'Namai' filtravimui pagal jūsų HA vietą, 'Pasirinktinis' taškui žemėlapyje pasirinkti arba 'Pasaulis' rodyti visus aktyvius ugnikalnius pasaulyje.",
-          "radius_km": "Naudojamas tik 'Namai' arba 'Pasirinktinis' režimu. Ignoruojamas 'Pasaulis' režimu."
+          "radius_km": "Intervalas: 50–20 000 km · 31–12 427 mylių"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Atstumo vienetas"
+        },
+        "data_description": {
+          "radius_km": "Intervalas: 50–20 000 km · 31–12 427 mylių"
         }
       },
       "custom_location": {
