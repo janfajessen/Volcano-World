@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mundo Vulcânico",
+        "description": "Configure quais vulcões ativos monitorar.\n\nFontes de dados: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — nenhuma chave de API necessária.",
+        "data": {
+          "location_mode": "Filtro de localização",
+          "radius_km": "Raio (km)",
+          "update_interval": "Intervalo de atualização (min)",
+          "source_gvp": "Smithsonian GVP (global, ~45 vulcões ativos)",
+          "source_usgs": "USGS HANS (EUA + níveis de alerta)",
+          "unit": "Unidade de distância"
+        },
+        "data_description": {
+          "location_mode": "Escolha 'Casa' para filtrar pela sua localização HA, 'Personalizado' para escolher um ponto no mapa, ou 'Mundo' para mostrar todos os vulcões ativos globalmente.",
+          "radius_km": "Usado apenas no modo 'Casa' ou 'Personalizado'. Ignorado no modo 'Mundo'."
+        }
+      },
+      "custom_location": {
+        "title": "Escolha sua localização de referência",
+        "description": "Clique no mapa para definir o centro do raio do filtro.",
+        "data": {
+          "location": "Localização de referência"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Não foi possível conectar às fontes de dados. Verifique sua conexão com a internet.",
+      "no_data": "Não foi possível obter dados de vulcões ativos de nenhuma fonte.",
+      "both_sources_disabled": "Pelo menos uma fonte de dados deve estar ativada."
+    },
+    "abort": {
+      "already_configured": "Mundo Vulcânico já está configurado."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Mundo Vulcânico",
+        "description": "Atualize as preferências de filtro e fontes de dados.",
+        "data": {
+          "location_mode": "Filtro de localização",
+          "radius_km": "Raio (km)",
+          "update_interval": "Intervalo de atualização (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Unidade de distância"
+        }
+      },
+      "custom_location": {
+        "title": "Atualizar localização de referência",
+        "data": {
+          "location": "Localização de referência"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Vulcões Ativos"
+      },
+      "weekly_report_count": {
+        "name": "No Relatório Semanal"
+      },
+      "elevated_count": {
+        "name": "Vulcões com Alerta Elevado"
+      },
+      "highest_alert": {
+        "name": "Nível de Alerta Mais Alto"
+      },
+      "nearby_count": {
+        "name": "Vulcões Ativos Próximos"
+      },
+      "closest_volcano": {
+        "name": "Vulcão Ativo Mais Próximo"
+      },
+      "most_dangerous_volcano": {
+        "name": "Vulcão Mais Perigoso"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Atividade Vulcânica Próxima"
+      },
+      "elevated_nearby": {
+        "name": "Vulcão com Alerta Elevado Próximo"
+      },
+      "warning_global": {
+        "name": "Alerta Vulcânico Global"
+      }
+    }
+  }
+}
