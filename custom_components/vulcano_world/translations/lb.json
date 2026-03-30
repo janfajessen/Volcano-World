@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Wiel 'Doheem' fir no dengem HA-Standort ze filteren, 'Individuell' fir e Punkt op der Kaart auszewielen, oder 'Welt' fir all aktiv Vulkane weltwäit ze weisen.",
-          "radius_km": "Gëtt nëmmen am Modus 'Doheem' oder 'Individuell' benotzt. Am Modus 'Welt' ignoréiert."
+          "radius_km": "Beräich: 50–20.000 km · 31–12.427 Meilen"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Distanzeenheet"
+        },
+        "data_description": {
+          "radius_km": "Beräich: 50–20.000 km · 31–12.427 Meilen"
         }
       },
       "custom_location": {
