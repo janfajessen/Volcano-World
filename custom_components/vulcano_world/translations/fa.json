@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "جهان آتشفشان‌ها",
+        "description": "پیکربندی کنید کدام آتشفشان‌های فعال نظارت شوند.\n\nمنابع داده: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — نیازی به کلید API نیست.",
+        "data": {
+          "location_mode": "فیلتر مکان",
+          "radius_km": "شعاع (کیلومتر)",
+          "update_interval": "فاصله به‌روزرسانی (دقیقه)",
+          "source_gvp": "Smithsonian GVP (جهانی، ~۴۵ آتشفشان فعال)",
+          "source_usgs": "USGS HANS (ایالات متحده + سطوح هشدار)",
+          "unit": "واحد فاصله"
+        },
+        "data_description": {
+          "location_mode": "'خانه' را برای فیلتر بر اساس مکان HA خود، 'سفارشی' را برای انتخاب نقطه روی نقشه، یا 'جهان' را برای نمایش همه آتشفشان‌های فعال در جهان انتخاب کنید.",
+          "radius_km": "فقط در حالت 'خانه' یا 'سفارشی' استفاده می‌شود. در حالت 'جهان' نادیده گرفته می‌شود."
+        }
+      },
+      "custom_location": {
+        "title": "مکان مرجع خود را انتخاب کنید",
+        "description": "برای تنظیم مرکز شعاع فیلتر روی نقشه کلیک کنید.",
+        "data": {
+          "location": "مکان مرجع"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "اتصال به منابع داده امکان‌پذیر نیست. اتصال اینترنت خود را بررسی کنید.",
+      "no_data": "هیچ داده‌ای از آتشفشان‌های فعال از هیچ منبعی قابل بازیابی نیست.",
+      "both_sources_disabled": "حداقل یک منبع داده باید فعال باشد."
+    },
+    "abort": {
+      "already_configured": "جهان آتشفشان‌ها قبلاً پیکربندی شده است."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "جهان آتشفشان‌ها",
+        "description": "به‌روزرسانی ترجیحات فیلتر و منبع داده.",
+        "data": {
+          "location_mode": "فیلتر مکان",
+          "radius_km": "شعاع (کیلومتر)",
+          "update_interval": "فاصله به‌روزرسانی (دقیقه)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "واحد فاصله"
+        }
+      },
+      "custom_location": {
+        "title": "به‌روزرسانی مکان مرجع",
+        "data": {
+          "location": "مکان مرجع"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "آتشفشان‌های فعال"
+      },
+      "weekly_report_count": {
+        "name": "در گزارش هفتگی"
+      },
+      "elevated_count": {
+        "name": "آتشفشان‌های با هشدار بالا"
+      },
+      "highest_alert": {
+        "name": "بالاترین سطح هشدار"
+      },
+      "nearby_count": {
+        "name": "آتشفشان‌های فعال نزدیک"
+      },
+      "closest_volcano": {
+        "name": "نزدیک‌ترین آتشفشان فعال"
+      },
+      "most_dangerous_volcano": {
+        "name": "خطرناک‌ترین آتشفشان"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "فعالیت آتشفشانی در نزدیکی"
+      },
+      "elevated_nearby": {
+        "name": "آتشفشان با هشدار بالا در نزدیکی"
+      },
+      "warning_global": {
+        "name": "هشدار جهانی آتشفشان"
+      }
+    }
+  }
+}
