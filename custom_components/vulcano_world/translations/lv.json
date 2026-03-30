@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Izvēlieties 'Mājas', lai filtrētu pēc jūsu HA atrašanās vietas, 'Pielāgots', lai izvēlētos punktu kartē, vai 'Pasaule', lai parādītu visus aktīvos vulkānus globāli.",
-          "radius_km": "Izmanto tikai 'Mājas' vai 'Pielāgots' režīmā. Ignorē 'Pasaule' režīmā."
+          "radius_km": "Diapazons: 50–20 000 km · 31–12 427 jūdzes"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Attāluma vienība"
+        },
+        "data_description": {
+          "radius_km": "Diapazons: 50–20 000 km · 31–12 427 jūdzes"
         }
       },
       "custom_location": {
