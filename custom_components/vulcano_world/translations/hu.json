@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Válaszd az 'Otthon' lehetőséget a HA-hely szerinti szűréshez, az 'Egyéni' lehetőséget egy pont kiválasztásához a térképen, vagy a 'Világ' lehetőséget az összes aktív vulkán megjelenítéséhez világszerte.",
-          "radius_km": "Csak az 'Otthon' vagy 'Egyéni' módban használatos. A 'Világ' módban figyelmen kívül marad."
+          "radius_km": "Tartomány: 50–20 000 km · 31–12 427 mérföld"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Távolság mértékegysége"
+        },
+        "data_description": {
+          "radius_km": "Tartomány: 50–20 000 km · 31–12 427 mérföld"
         }
       },
       "custom_location": {
