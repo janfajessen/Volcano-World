@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vulkanwelt",
+        "description": "Konfiguréier wéi aktiv Vulkane iwwerwaacht solle ginn.\n\nDatequellen: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — keen API-Schlüssel néideg.",
+        "data": {
+          "location_mode": "Standortfilter",
+          "radius_km": "Radius (km)",
+          "update_interval": "Aktualiséierungsintervall (min)",
+          "source_gvp": "Smithsonian GVP (global, ~45 aktiv Vulkane)",
+          "source_usgs": "USGS HANS (USA + Alarmstufen)",
+          "unit": "Distanzeenheet"
+        },
+        "data_description": {
+          "location_mode": "Wiel 'Doheem' fir no dengem HA-Standort ze filteren, 'Individuell' fir e Punkt op der Kaart auszewielen, oder 'Welt' fir all aktiv Vulkane weltwäit ze weisen.",
+          "radius_km": "Gëtt nëmmen am Modus 'Doheem' oder 'Individuell' benotzt. Am Modus 'Welt' ignoréiert."
+        }
+      },
+      "custom_location": {
+        "title": "Wiel deng Referenzstandort",
+        "description": "Klick op d'Kaart fir den Zentrum vum Filterradius ze setzen.",
+        "data": {
+          "location": "Referenzstandort"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Konnt net mat den Datequellen verbannen. Préif deng Internetverbindung.",
+      "no_data": "Et konnten keng aktiv Vulkan-Date vun enger Quell ofgeruff ginn.",
+      "both_sources_disabled": "Mindestens eng Datequell muss aktivéiert sinn."
+    },
+    "abort": {
+      "already_configured": "Vulkanwelt ass scho konfiguréiert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vulkanwelt",
+        "description": "Aktualiséier Filter- an Datequell-Astellungen.",
+        "data": {
+          "location_mode": "Standortfilter",
+          "radius_km": "Radius (km)",
+          "update_interval": "Aktualiséierungsintervall (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Distanzeenheet"
+        }
+      },
+      "custom_location": {
+        "title": "Referenzstandort aktualiséieren",
+        "data": {
+          "location": "Referenzstandort"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktiv Vulkane"
+      },
+      "weekly_report_count": {
+        "name": "Am Wochebericht"
+      },
+      "elevated_count": {
+        "name": "Vulkane mat erhéiter Alarmstuf"
+      },
+      "highest_alert": {
+        "name": "Héchst Alarmstuf"
+      },
+      "nearby_count": {
+        "name": "Aktiv Vulkane an der Noperschaft"
+      },
+      "closest_volcano": {
+        "name": "Nooste aktive Vulkan"
+      },
+      "most_dangerous_volcano": {
+        "name": "Geféierlechste Vulkan"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Vulkanesch Aktivitéit an der Noperschaft"
+      },
+      "elevated_nearby": {
+        "name": "Vulkan mat erhéiter Alarmstuf an der Noperschaft"
+      },
+      "warning_global": {
+        "name": "Global Vulkanwarnung"
+      }
+    }
+  }
+}
