@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Ulimwengu wa Volkeno",
+        "description": "Sanidi ni volkeno zipi zinazofanya kazi zitakazofuatiliwa.\n\nVyanzo vya data: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — hakuna ufunguo wa API unaohitajika.",
+        "data": {
+          "location_mode": "Kichujio cha eneo",
+          "radius_km": "Radi (km)",
+          "update_interval": "Muda wa kusasisha (dakika)",
+          "source_gvp": "Smithsonian GVP (duniani, ~45 volkeno hai)",
+          "source_usgs": "USGS HANS (Marekani + viwango vya tahadhari)",
+          "unit": "Kitengo cha umbali"
+        },
+        "data_description": {
+          "location_mode": "Chagua 'Nyumbani' kuchuja kwa eneo lako la HA, 'Maalum' kuchagua sehemu kwenye ramani, au 'Dunia' kuonyesha volkeno zote hai duniani.",
+          "radius_km": "Inatumika tu katika hali ya 'Nyumbani' au 'Maalum'. Inapuuzwa katika hali ya 'Dunia'."
+        }
+      },
+      "custom_location": {
+        "title": "Chagua eneo lako la kumbukumbu",
+        "description": "Bonyeza kwenye ramani kuweka kituo cha radi ya kichujio.",
+        "data": {
+          "location": "Eneo la kumbukumbu"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Haikuweza kuunganishwa na vyanzo vya data. Angalia muunganisho wako wa intaneti.",
+      "no_data": "Hakuna data ya volkeno hai iliyoweza kupatikana kutoka kwa chanzo chochote.",
+      "both_sources_disabled": "Angalau chanzo kimoja cha data lazima kiwezeshwe."
+    },
+    "abort": {
+      "already_configured": "Ulimwengu wa Volkeno tayari umesanidiwa."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ulimwengu wa Volkeno",
+        "description": "Sasisha mapendeleo ya kichujio na chanzo cha data.",
+        "data": {
+          "location_mode": "Kichujio cha eneo",
+          "radius_km": "Radi (km)",
+          "update_interval": "Muda wa kusasisha (dakika)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Kitengo cha umbali"
+        }
+      },
+      "custom_location": {
+        "title": "Sasisha eneo la kumbukumbu",
+        "data": {
+          "location": "Eneo la kumbukumbu"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Volkeno Hai"
+      },
+      "weekly_report_count": {
+        "name": "Katika Ripoti ya Wiki"
+      },
+      "elevated_count": {
+        "name": "Volkeno zenye Tahadhari ya Juu"
+      },
+      "highest_alert": {
+        "name": "Kiwango cha Juu zaidi cha Tahadhari"
+      },
+      "nearby_count": {
+        "name": "Volkeno Hai Karibu"
+      },
+      "closest_volcano": {
+        "name": "Volkano Hai Iliyo Karibu Zaidi"
+      },
+      "most_dangerous_volcano": {
+        "name": "Volkano Hatari Zaidi"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Shughuli za Volkeno Karibu"
+      },
+      "elevated_nearby": {
+        "name": "Volkano yenye Tahadhari ya Juu Karibu"
+      },
+      "warning_global": {
+        "name": "Onyo la Volkeno Duniani"
+      }
+    }
+  }
+}
