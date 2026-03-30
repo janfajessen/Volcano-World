@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Dunia Gunung Berapi",
+        "description": "Konfigurasikan gunung berapi aktif yang hendak dipantau.\n\nSumber data: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — tiada kunci API diperlukan.",
+        "data": {
+          "location_mode": "Penapis lokasi",
+          "radius_km": "Jejari (km)",
+          "update_interval": "Selang kemas kini (min)",
+          "source_gvp": "Smithsonian GVP (global, ~45 gunung berapi aktif)",
+          "source_usgs": "USGS HANS (AS + tahap amaran)",
+          "unit": "Unit jarak"
+        },
+        "data_description": {
+          "location_mode": "Pilih 'Rumah' untuk menapis mengikut lokasi HA anda, 'Tersuai' untuk memilih titik pada peta, atau 'Dunia' untuk menunjukkan semua gunung berapi aktif di seluruh dunia.",
+          "radius_km": "Hanya digunakan dalam mod 'Rumah' atau 'Tersuai'. Diabaikan dalam mod 'Dunia'."
+        }
+      },
+      "custom_location": {
+        "title": "Pilih lokasi rujukan anda",
+        "description": "Klik pada peta untuk menetapkan pusat jejari penapis.",
+        "data": {
+          "location": "Lokasi rujukan"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Tidak dapat menyambung ke sumber data. Periksa sambungan internet anda.",
+      "no_data": "Data gunung berapi aktif tidak dapat diperoleh dari mana-mana sumber.",
+      "both_sources_disabled": "Sekurang-kurangnya satu sumber data mesti diaktifkan."
+    },
+    "abort": {
+      "already_configured": "Dunia Gunung Berapi sudah dikonfigurasikan."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Dunia Gunung Berapi",
+        "description": "Kemas kini keutamaan penapis dan sumber data.",
+        "data": {
+          "location_mode": "Penapis lokasi",
+          "radius_km": "Jejari (km)",
+          "update_interval": "Selang kemas kini (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Unit jarak"
+        }
+      },
+      "custom_location": {
+        "title": "Kemas kini lokasi rujukan",
+        "data": {
+          "location": "Lokasi rujukan"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Gunung Berapi Aktif"
+      },
+      "weekly_report_count": {
+        "name": "Dalam Laporan Mingguan"
+      },
+      "elevated_count": {
+        "name": "Gunung Berapi dengan Amaran Tinggi"
+      },
+      "highest_alert": {
+        "name": "Tahap Amaran Tertinggi"
+      },
+      "nearby_count": {
+        "name": "Gunung Berapi Aktif Berdekatan"
+      },
+      "closest_volcano": {
+        "name": "Gunung Berapi Aktif Terdekat"
+      },
+      "most_dangerous_volcano": {
+        "name": "Gunung Berapi Paling Berbahaya"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Aktiviti Gunung Berapi Berdekatan"
+      },
+      "elevated_nearby": {
+        "name": "Gunung Berapi dengan Amaran Tinggi Berdekatan"
+      },
+      "warning_global": {
+        "name": "Amaran Gunung Berapi Global"
+      }
+    }
+  }
+}
