@@ -13,8 +13,8 @@
           "unit": "Entfernungseinheit"
         },
         "data_description": {
-          "location_mode": "Wähle 'Home' für deinen HA-Standort, 'Benutzerdefiniert' für einen Kartenpunkt oder 'Welt' für alle aktiven Vulkane weltweit.",
-          "radius_km": "Nur relevant bei Modus 'Home' oder 'Benutzerdefiniert'. Im Modus 'Welt' ignoriert."
+          "location_mode": "Wähle 'Zuhause' um nach deinem HA-Standort zu filtern, 'Benutzerdefiniert' um einen Punkt auf der Karte auszuwählen, oder 'Welt' um alle aktiven Vulkane weltweit anzuzeigen.",
+          "radius_km": "Bereich: 50–20.000 km · 31–12.427 Meilen"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Entfernungseinheit"
+        },
+        "data_description": {
+          "radius_km": "Bereich: 50–20.000 km · 31–12.427 Meilen"
         }
       },
       "custom_location": {
