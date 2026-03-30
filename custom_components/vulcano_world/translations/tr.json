@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Volkan Dünyası",
+        "description": "Hangi aktif volkanların izleneceğini yapılandırın.\n\nVeri kaynakları: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — API anahtarı gerekmez.",
+        "data": {
+          "location_mode": "Konum filtresi",
+          "radius_km": "Yarıçap (km)",
+          "update_interval": "Güncelleme aralığı (dk)",
+          "source_gvp": "Smithsonian GVP (küresel, ~45 aktif volkan)",
+          "source_usgs": "USGS HANS (ABD + alarm seviyeleri)",
+          "unit": "Mesafe birimi"
+        },
+        "data_description": {
+          "location_mode": "HA konumunuza göre filtrelemek için 'Ev', haritada bir nokta seçmek için 'Özel' veya dünyadaki tüm aktif volkanları göstermek için 'Dünya' seçeneğini seçin.",
+          "radius_km": "Yalnızca 'Ev' veya 'Özel' modunda kullanılır. 'Dünya' modunda yok sayılır."
+        }
+      },
+      "custom_location": {
+        "title": "Referans konumunuzu seçin",
+        "description": "Filtre yarıçapının merkezini ayarlamak için haritaya tıklayın.",
+        "data": {
+          "location": "Referans konumu"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Veri kaynaklarına bağlanılamadı. İnternet bağlantınızı kontrol edin.",
+      "no_data": "Hiçbir kaynaktan aktif volkan verisi alınamadı.",
+      "both_sources_disabled": "En az bir veri kaynağı etkinleştirilmelidir."
+    },
+    "abort": {
+      "already_configured": "Volkan Dünyası zaten yapılandırılmış."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Volkan Dünyası",
+        "description": "Filtre ve veri kaynağı tercihlerini güncelleyin.",
+        "data": {
+          "location_mode": "Konum filtresi",
+          "radius_km": "Yarıçap (km)",
+          "update_interval": "Güncelleme aralığı (dk)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Mesafe birimi"
+        }
+      },
+      "custom_location": {
+        "title": "Referans konumunu güncelle",
+        "data": {
+          "location": "Referans konumu"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktif Volkanlar"
+      },
+      "weekly_report_count": {
+        "name": "Haftalık Rapor'da"
+      },
+      "elevated_count": {
+        "name": "Yüksek Alarm Seviyesindeki Volkanlar"
+      },
+      "highest_alert": {
+        "name": "En Yüksek Alarm Seviyesi"
+      },
+      "nearby_count": {
+        "name": "Yakındaki Aktif Volkanlar"
+      },
+      "closest_volcano": {
+        "name": "En Yakın Aktif Volkan"
+      },
+      "most_dangerous_volcano": {
+        "name": "En Tehlikeli Volkan"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Yakında Volkanik Aktivite"
+      },
+      "elevated_nearby": {
+        "name": "Yakında Yüksek Alarm Seviyeli Volkan"
+      },
+      "warning_global": {
+        "name": "Küresel Volkan Uyarısı"
+      }
+    }
+  }
+}
