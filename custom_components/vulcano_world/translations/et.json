@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vulkaanide Maailm",
+        "description": "Seadista, milliseid aktiivseid vulkaane jälgida.\n\nAndmeallikad: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — API võtit pole vaja.",
+        "data": {
+          "location_mode": "Asukohafilter",
+          "radius_km": "Raadius (km)",
+          "update_interval": "Uuendamise intervall (min)",
+          "source_gvp": "Smithsonian GVP (globaalne, ~45 aktiivset vulkaani)",
+          "source_usgs": "USGS HANS (USA + häiretasemed)",
+          "unit": "Kaugusühik"
+        },
+        "data_description": {
+          "location_mode": "Vali 'Kodu' filtreerimaks sinu HA asukoha järgi, 'Kohandatud' et valida kaardil punkt või 'Maailm' et näidata kõiki globaalseid aktiivseid vulkaane.",
+          "radius_km": "Kasutatakse ainult režiimis 'Kodu' või 'Kohandatud'. Režiimis 'Maailm' eiratakse."
+        }
+      },
+      "custom_location": {
+        "title": "Vali oma võrdlusasukoht",
+        "description": "Klõpsa kaardil, et määrata filtri raadiuse keskpunkt.",
+        "data": {
+          "location": "Võrdlusasukoht"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Andmeallikatega ühendamine ebaõnnestus. Kontrolli oma internetiühendust.",
+      "no_data": "Ühestki allikast ei õnnestunud aktiivsete vulkaanide andmeid hankida.",
+      "both_sources_disabled": "Vähemalt üks andmeallikas peab olema lubatud."
+    },
+    "abort": {
+      "already_configured": "Vulkaanide Maailm on juba seadistatud."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vulkaanide Maailm",
+        "description": "Uuenda filtri ja andmeallikate eelistusi.",
+        "data": {
+          "location_mode": "Asukohafilter",
+          "radius_km": "Raadius (km)",
+          "update_interval": "Uuendamise intervall (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Kaugusühik"
+        }
+      },
+      "custom_location": {
+        "title": "Uuenda võrdlusasukohta",
+        "data": {
+          "location": "Võrdlusasukoht"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktiivsed Vulkaanid"
+      },
+      "weekly_report_count": {
+        "name": "Nädalaaruandes"
+      },
+      "elevated_count": {
+        "name": "Kõrgendatud Häiretasemega Vulkaanid"
+      },
+      "highest_alert": {
+        "name": "Kõrgeim Häiretase"
+      },
+      "nearby_count": {
+        "name": "Lähedal Asuvad Aktiivsed Vulkaanid"
+      },
+      "closest_volcano": {
+        "name": "Lähim Aktiivne Vulkaan"
+      },
+      "most_dangerous_volcano": {
+        "name": "Kõige Ohtlikum Vulkaan"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Vulkaaniline Tegevus Lähedal"
+      },
+      "elevated_nearby": {
+        "name": "Kõrgendatud Häiretasemega Vulkaan Lähedal"
+      },
+      "warning_global": {
+        "name": "Globaalne Vulkaanihoiatus"
+      }
+    }
+  }
+}
