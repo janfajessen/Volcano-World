@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "'自宅'を選択するとHAの位置でフィルター、'カスタム'を選択すると地図上の地点を選択、'世界'を選択すると世界中のすべての活火山を表示します。",
-          "radius_km": "'自宅'または'カスタム'モードでのみ使用されます。'世界'モードでは無視されます。"
+          "radius_km": "範囲: 50–20,000 km · 31–12,427 マイル"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "距離の単位"
+        },
+        "data_description": {
+          "radius_km": "範囲: 50–20,000 km · 31–12,427 マイル"
         }
       },
       "custom_location": {
