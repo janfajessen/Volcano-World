@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Wähl 'Dehei' zum nach dim HA-Standort filtere, 'Benutzerdefiniert' zum en Punkt uf de Charte uswähle, oder 'Wält' zum alli aktive Vulkään wältwit azeige.",
-          "radius_km": "Wird nur im Modus 'Dehei' oder 'Benutzerdefiniert' verwändet. Im Modus 'Wält' ignoriert."
+          "radius_km": "Bereich: 50–20'000 km · 31–12'427 Meile"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Entfernigseinheit"
+        },
+        "data_description": {
+          "radius_km": "Bereich: 50–20'000 km · 31–12'427 Meile"
         }
       },
       "custom_location": {
