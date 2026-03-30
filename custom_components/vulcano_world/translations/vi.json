@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Thế Giới Núi Lửa",
+        "description": "Cấu hình những núi lửa đang hoạt động cần theo dõi.\n\nNguồn dữ liệu: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — không cần khóa API.",
+        "data": {
+          "location_mode": "Bộ lọc vị trí",
+          "radius_km": "Bán kính (km)",
+          "update_interval": "Khoảng cập nhật (phút)",
+          "source_gvp": "Smithsonian GVP (toàn cầu, ~45 núi lửa đang hoạt động)",
+          "source_usgs": "USGS HANS (Hoa Kỳ + mức cảnh báo)",
+          "unit": "Đơn vị khoảng cách"
+        },
+        "data_description": {
+          "location_mode": "Chọn 'Nhà' để lọc theo vị trí HA của bạn, 'Tùy chỉnh' để chọn một điểm trên bản đồ, hoặc 'Thế giới' để hiển thị tất cả núi lửa đang hoạt động trên toàn cầu.",
+          "radius_km": "Chỉ được sử dụng ở chế độ 'Nhà' hoặc 'Tùy chỉnh'. Bị bỏ qua ở chế độ 'Thế giới'."
+        }
+      },
+      "custom_location": {
+        "title": "Chọn vị trí tham chiếu của bạn",
+        "description": "Nhấp vào bản đồ để đặt tâm của bán kính bộ lọc.",
+        "data": {
+          "location": "Vị trí tham chiếu"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Không thể kết nối đến nguồn dữ liệu. Kiểm tra kết nối internet của bạn.",
+      "no_data": "Không thể truy xuất dữ liệu núi lửa đang hoạt động từ bất kỳ nguồn nào.",
+      "both_sources_disabled": "Phải kích hoạt ít nhất một nguồn dữ liệu."
+    },
+    "abort": {
+      "already_configured": "Thế Giới Núi Lửa đã được cấu hình."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Thế Giới Núi Lửa",
+        "description": "Cập nhật tùy chọn bộ lọc và nguồn dữ liệu.",
+        "data": {
+          "location_mode": "Bộ lọc vị trí",
+          "radius_km": "Bán kính (km)",
+          "update_interval": "Khoảng cập nhật (phút)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Đơn vị khoảng cách"
+        }
+      },
+      "custom_location": {
+        "title": "Cập nhật vị trí tham chiếu",
+        "data": {
+          "location": "Vị trí tham chiếu"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Núi Lửa Đang Hoạt Động"
+      },
+      "weekly_report_count": {
+        "name": "Trong Báo Cáo Hàng Tuần"
+      },
+      "elevated_count": {
+        "name": "Núi Lửa Có Cảnh Báo Cao"
+      },
+      "highest_alert": {
+        "name": "Mức Cảnh Báo Cao Nhất"
+      },
+      "nearby_count": {
+        "name": "Núi Lửa Đang Hoạt Động Gần Đó"
+      },
+      "closest_volcano": {
+        "name": "Núi Lửa Đang Hoạt Động Gần Nhất"
+      },
+      "most_dangerous_volcano": {
+        "name": "Núi Lửa Nguy Hiểm Nhất"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Hoạt Động Núi Lửa Gần Đó"
+      },
+      "elevated_nearby": {
+        "name": "Núi Lửa Có Cảnh Báo Cao Gần Đó"
+      },
+      "warning_global": {
+        "name": "Cảnh Báo Núi Lửa Toàn Cầu"
+      }
+    }
+  }
+}
