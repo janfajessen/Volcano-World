@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "火山世界",
+        "description": "配置要监控的活火山。\n\n数据源：[Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — 无需 API 密钥。",
+        "data": {
+          "location_mode": "位置筛选",
+          "radius_km": "半径 (公里)",
+          "update_interval": "更新间隔 (分钟)",
+          "source_gvp": "Smithsonian GVP（全球，约45座活火山）",
+          "source_usgs": "USGS HANS（美国 + 警报级别）",
+          "unit": "距离单位"
+        },
+        "data_description": {
+          "location_mode": "选择“家庭”以根据您的 HA 位置进行筛选，“自定义”以在地图上选择点，或“世界”以显示全球所有活火山。",
+          "radius_km": "仅在“家庭”或“自定义”模式下使用。在“世界”模式下忽略。"
+        }
+      },
+      "custom_location": {
+        "title": "选择您的参考位置",
+        "description": "点击地图设置筛选半径的中心点。",
+        "data": {
+          "location": "参考位置"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接到数据源。请检查您的网络连接。",
+      "no_data": "无法从任何来源获取活火山数据。",
+      "both_sources_disabled": "必须至少启用一个数据源。"
+    },
+    "abort": {
+      "already_configured": "火山世界已配置。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "火山世界",
+        "description": "更新筛选和数据源偏好。",
+        "data": {
+          "location_mode": "位置筛选",
+          "radius_km": "半径 (公里)",
+          "update_interval": "更新间隔 (分钟)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "距离单位"
+        }
+      },
+      "custom_location": {
+        "title": "更新参考位置",
+        "data": {
+          "location": "参考位置"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "活火山"
+      },
+      "weekly_report_count": {
+        "name": "周报中"
+      },
+      "elevated_count": {
+        "name": "警报级别升高的火山"
+      },
+      "highest_alert": {
+        "name": "最高警报级别"
+      },
+      "nearby_count": {
+        "name": "附近的活火山"
+      },
+      "closest_volcano": {
+        "name": "最近的活火山"
+      },
+      "most_dangerous_volcano": {
+        "name": "最危险的火山"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "附近火山活动"
+      },
+      "elevated_nearby": {
+        "name": "附近警报级别升高的火山"
+      },
+      "warning_global": {
+        "name": "全球火山警报"
+      }
+    }
+  }
+}
