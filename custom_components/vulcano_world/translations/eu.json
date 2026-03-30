@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Sumendi Mundua",
+        "description": "Konfiguratu zein sumendi aktibo monitorizatu nahi dituzun.\n\nDatu iturriak: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — ez da API gakorik behar.",
+        "data": {
+          "location_mode": "Kokapen iragazkia",
+          "radius_km": "Erradioa (km)",
+          "update_interval": "Eguneratze tartea (min)",
+          "source_gvp": "Smithsonian GVP (globala, ~45 sumendi aktibo)",
+          "source_usgs": "USGS HANS (AEB + alerta mailak)",
+          "unit": "Distantzia unitatea"
+        },
+        "data_description": {
+          "location_mode": "Aukeratu 'Etxea' zure HA kokapenaren arabera iragazteko, 'Pertsonalizatua' mapako puntu bat aukeratzeko, edo 'Mundua' sumendi aktibo guztiak erakusteko.",
+          "radius_km": "'Etxea' edo 'Pertsonalizatua' moduan bakarrik erabiltzen da. 'Mundua' moduan baztertzen da."
+        }
+      },
+      "custom_location": {
+        "title": "Aukeratu zure erreferentzia kokapena",
+        "description": "Egin klik mapaan iragazki erradioaren erdigunea ezartzeko.",
+        "data": {
+          "location": "Erreferentzia kokapena"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Ezin izan da datu iturriekin konektatu. Egiaztatu zure internet konexioa.",
+      "no_data": "Ezin izan da sumendi aktiboen daturik lortu iturri bakar batetik ere.",
+      "both_sources_disabled": "Gutxienez datu iturri bat gaituta egon behar da."
+    },
+    "abort": {
+      "already_configured": "Sumendi Mundua jada konfiguratuta dago."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Sumendi Mundua",
+        "description": "Eguneratu iragazki eta datu iturrien hobespenak.",
+        "data": {
+          "location_mode": "Kokapen iragazkia",
+          "radius_km": "Erradioa (km)",
+          "update_interval": "Eguneratze tartea (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Distantzia unitatea"
+        }
+      },
+      "custom_location": {
+        "title": "Eguneratu erreferentzia kokapena",
+        "data": {
+          "location": "Erreferentzia kokapena"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Sumendi Aktiboak"
+      },
+      "weekly_report_count": {
+        "name": "Asteko Txostenean"
+      },
+      "elevated_count": {
+        "name": "Alerta Maila Garaiko Sumendiak"
+      },
+      "highest_alert": {
+        "name": "Alerta Maila Gorenena"
+      },
+      "nearby_count": {
+        "name": "Sumendi Aktiboak Gertu"
+      },
+      "closest_volcano": {
+        "name": "Sumendi Aktibo Hurbilena"
+      },
+      "most_dangerous_volcano": {
+        "name": "Sumendi Arriskutsuena"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Sumendi Jarduera Gertu"
+      },
+      "elevated_nearby": {
+        "name": "Alerta Maila Garaiko Sumendia Gertu"
+      },
+      "warning_global": {
+        "name": "Alerta Sumendi Globala"
+      }
+    }
+  }
+}
