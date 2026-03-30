@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vulkānu pasaule",
+        "description": "Konfigurējiet, kurus aktīvos vulkānus uzraudzīt.\n\nDatu avoti: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — API atslēga nav nepieciešama.",
+        "data": {
+          "location_mode": "Atrašanās vietas filtrs",
+          "radius_km": "Rādiuss (km)",
+          "update_interval": "Atjaunināšanas intervāls (min)",
+          "source_gvp": "Smithsonian GVP (globāls, ~45 aktīvi vulkāni)",
+          "source_usgs": "USGS HANS (ASV + brīdinājuma līmeņi)",
+          "unit": "Attāluma vienība"
+        },
+        "data_description": {
+          "location_mode": "Izvēlieties 'Mājas', lai filtrētu pēc jūsu HA atrašanās vietas, 'Pielāgots', lai izvēlētos punktu kartē, vai 'Pasaule', lai parādītu visus aktīvos vulkānus globāli.",
+          "radius_km": "Izmanto tikai 'Mājas' vai 'Pielāgots' režīmā. Ignorē 'Pasaule' režīmā."
+        }
+      },
+      "custom_location": {
+        "title": "Izvēlieties savu atsauces atrašanās vietu",
+        "description": "Noklikšķiniet uz kartes, lai iestatītu filtra rādiusa centru.",
+        "data": {
+          "location": "Atsauces atrašanās vieta"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nevarēja izveidot savienojumu ar datu avotiem. Pārbaudiet savu interneta savienojumu.",
+      "no_data": "No neviena avota nevarēja iegūt datus par aktīvajiem vulkāniem.",
+      "both_sources_disabled": "Jābūt iespējotam vismaz vienam datu avotam."
+    },
+    "abort": {
+      "already_configured": "Vulkānu pasaule jau ir konfigurēta."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vulkānu pasaule",
+        "description": "Atjauniniet filtra un datu avotu preferences.",
+        "data": {
+          "location_mode": "Atrašanās vietas filtrs",
+          "radius_km": "Rādiuss (km)",
+          "update_interval": "Atjaunināšanas intervāls (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Attāluma vienība"
+        }
+      },
+      "custom_location": {
+        "title": "Atjaunināt atsauces atrašanās vietu",
+        "data": {
+          "location": "Atsauces atrašanās vieta"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktīvi vulkāni"
+      },
+      "weekly_report_count": {
+        "name": "Nedēļas pārskatā"
+      },
+      "elevated_count": {
+        "name": "Paaugstināta brīdinājuma vulkāni"
+      },
+      "highest_alert": {
+        "name": "Augstākais brīdinājuma līmenis"
+      },
+      "nearby_count": {
+        "name": "Tuvumā esošie aktīvie vulkāni"
+      },
+      "closest_volcano": {
+        "name": "Tuvākais aktīvais vulkāns"
+      },
+      "most_dangerous_volcano": {
+        "name": "Bīstamākais vulkāns"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Vulkāniskā aktivitāte tuvumā"
+      },
+      "elevated_nearby": {
+        "name": "Paaugstināta brīdinājuma vulkāns tuvumā"
+      },
+      "warning_global": {
+        "name": "Globāls vulkānu brīdinājums"
+      }
+    }
+  }
+}
