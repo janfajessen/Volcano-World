@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Veldu 'Heimili' til að sía eftir HA-staðsetningunni þinni, 'Sérsniðið' til að velja punkt á kortinu, eða 'Heimur' til að sýna öll virk eldfjöll á heimsvísu.",
-          "radius_km": "Aðeins notað í 'Heimili' eða 'Sérsniðið' stillingu. Hunsað í 'Heimur' stillingu."
+          "radius_km": "Bil: 50–20.000 km · 31–12.427 mílur"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Fjarlægðareining"
+        },
+        "data_description": {
+          "radius_km": "Bil: 50–20.000 km · 31–12.427 mílur"
         }
       },
       "custom_location": {
