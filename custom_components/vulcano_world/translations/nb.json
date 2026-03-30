@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Vulkanverdenen",
+        "description": "Konfigurer hvilke aktive vulkaner som skal overvåkes.\n\nDatakilder: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — ingen API-nøkkel kreves.",
+        "data": {
+          "location_mode": "Plasseringsfilter",
+          "radius_km": "Radius (km)",
+          "update_interval": "Oppdateringsintervall (min)",
+          "source_gvp": "Smithsonian GVP (globalt, ~45 aktive vulkaner)",
+          "source_usgs": "USGS HANS (USA + varslingsnivåer)",
+          "unit": "Avstandsenhet"
+        },
+        "data_description": {
+          "location_mode": "Velg 'Hjem' for å filtrere etter din HA-plassering, 'Egendefinert' for å velge et punkt på kartet, eller 'Verden' for å vise alle aktive vulkaner globalt.",
+          "radius_km": "Brukes bare i 'Hjem' eller 'Egendefinert'-modus. Ignoreres i 'Verden'-modus."
+        }
+      },
+      "custom_location": {
+        "title": "Velg din referanseplassering",
+        "description": "Klikk på kartet for å angi sentrum av filterets radius.",
+        "data": {
+          "location": "Referanseplassering"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kunne ikke koble til datakilder. Sjekk internettforbindelsen din.",
+      "no_data": "Ingen aktive vulkandata kunne hentes fra noen kilde.",
+      "both_sources_disabled": "Minst én datakilde må være aktivert."
+    },
+    "abort": {
+      "already_configured": "Vulkanverdenen er allerede konfigurert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Vulkanverdenen",
+        "description": "Oppdater filter- og datakildeinnstillinger.",
+        "data": {
+          "location_mode": "Plasseringsfilter",
+          "radius_km": "Radius (km)",
+          "update_interval": "Oppdateringsintervall (min)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Avstandsenhet"
+        }
+      },
+      "custom_location": {
+        "title": "Oppdater referanseplassering",
+        "data": {
+          "location": "Referanseplassering"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Aktive Vulkaner"
+      },
+      "weekly_report_count": {
+        "name": "I Ukentlig Rapport"
+      },
+      "elevated_count": {
+        "name": "Vulkaner med Forhøyet Varsel"
+      },
+      "highest_alert": {
+        "name": "Høyeste Varslingsnivå"
+      },
+      "nearby_count": {
+        "name": "Aktive Vulkaner i Nærheten"
+      },
+      "closest_volcano": {
+        "name": "Nærmeste Aktive Vulkan"
+      },
+      "most_dangerous_volcano": {
+        "name": "Farligste Vulkan"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Vulkanisk Aktivitet i Nærheten"
+      },
+      "elevated_nearby": {
+        "name": "Vulkan med Forhøyet Varsel i Nærheten"
+      },
+      "warning_global": {
+        "name": "Global Vulkanadvarsel"
+      }
+    }
+  }
+}
