@@ -1,0 +1,95 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Eldfjallaheimurinn",
+        "description": "Stilltu hvaða virku eldfjöll á að fylgjast með.\n\nGagnaveitur: [Smithsonian GVP]({gvp_url}) + [USGS HANS]({usgs_url}) — engin API-lykill nauðsynleg.",
+        "data": {
+          "location_mode": "Staðsetningarsía",
+          "radius_km": "Radíus (km)",
+          "update_interval": "Uppfærslubil (mín)",
+          "source_gvp": "Smithsonian GVP (heimsvíða, ~45 virk eldfjöll)",
+          "source_usgs": "USGS HANS (Bandaríkin + viðvörunarstig)",
+          "unit": "Fjarlægðareining"
+        },
+        "data_description": {
+          "location_mode": "Veldu 'Heimili' til að sía eftir HA-staðsetningunni þinni, 'Sérsniðið' til að velja punkt á kortinu, eða 'Heimur' til að sýna öll virk eldfjöll á heimsvísu.",
+          "radius_km": "Aðeins notað í 'Heimili' eða 'Sérsniðið' stillingu. Hunsað í 'Heimur' stillingu."
+        }
+      },
+      "custom_location": {
+        "title": "Veldu viðmiðunarstaðsetninguna þína",
+        "description": "Smelltu á kortið til að stilla miðju síuradíussins.",
+        "data": {
+          "location": "Viðmiðunarstaðsetning"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Ekki tókst að tengjast gagnaveitum. Athugaðu nettenginguna þína.",
+      "no_data": "Ekki var hægt að sækja gögn um virk eldfjöll úr neinum gagnaveitu.",
+      "both_sources_disabled": "Að minnsta kosti ein gagnaveita verður að vera virk."
+    },
+    "abort": {
+      "already_configured": "Eldfjallaheimurinn er nú þegar stilltur."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Eldfjallaheimurinn",
+        "description": "Uppfærðu síu- og gagnaveituvalkosti.",
+        "data": {
+          "location_mode": "Staðsetningarsía",
+          "radius_km": "Radíus (km)",
+          "update_interval": "Uppfærslubil (mín)",
+          "source_gvp": "Smithsonian GVP",
+          "source_usgs": "USGS HANS",
+          "unit": "Fjarlægðareining"
+        }
+      },
+      "custom_location": {
+        "title": "Uppfærðu viðmiðunarstaðsetningu",
+        "data": {
+          "location": "Viðmiðunarstaðsetning"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_count": {
+        "name": "Virk Eldfjöll"
+      },
+      "weekly_report_count": {
+        "name": "Í Viku Skýrslu"
+      },
+      "elevated_count": {
+        "name": "Eldfjöll með Hækkaða Viðvörun"
+      },
+      "highest_alert": {
+        "name": "Hæsta Viðvörunarstig"
+      },
+      "nearby_count": {
+        "name": "Virk Eldfjöll í Nágrenninu"
+      },
+      "closest_volcano": {
+        "name": "Næsta Virka Eldfjall"
+      },
+      "most_dangerous_volcano": {
+        "name": "Hættulegasta Eldfjall"
+      }
+    },
+    "binary_sensor": {
+      "activity_nearby": {
+        "name": "Eldfjallavirkni í Nágrenninu"
+      },
+      "elevated_nearby": {
+        "name": "Eldfjall með Hækkaða Viðvörun í Nágrenninu"
+      },
+      "warning_global": {
+        "name": "Alheims Viðvörun um Eldfjall"
+      }
+    }
+  }
+}
