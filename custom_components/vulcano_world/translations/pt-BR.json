@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Escolha 'Casa' para filtrar pela sua localização HA, 'Personalizado' para escolher um ponto no mapa, ou 'Mundo' para mostrar todos os vulcões ativos globalmente.",
-          "radius_km": "Usado apenas no modo 'Casa' ou 'Personalizado'. Ignorado no modo 'Mundo'."
+          "radius_km": "Faixa: 50–20.000 km · 31–12.427 milhas"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Unidade de distância"
+        },
+        "data_description": {
+          "radius_km": "Faixa: 50–20.000 km · 31–12.427 milhas"
         }
       },
       "custom_location": {
