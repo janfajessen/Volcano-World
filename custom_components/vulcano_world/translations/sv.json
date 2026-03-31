@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Välj 'Hem' för att filtrera efter din HA-plats, 'Anpassad' för att välja en punkt på kartan, eller 'Världen' för att visa alla aktiva vulkaner globalt.",
-          "radius_km": "Används endast i läget 'Hem' eller 'Anpassad'. Ignoreras i läget 'Världen'."
+          "radius_km": "Område: 50–20 000 km · 31–12 427 mil"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Avståndsenhet"
+        },
+        "data_description": {
+          "radius_km": "Område: 50–20 000 km · 31–12 427 mil"
         }
       },
       "custom_location": {
