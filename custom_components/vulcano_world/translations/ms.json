@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Pilih 'Rumah' untuk menapis mengikut lokasi HA anda, 'Tersuai' untuk memilih titik pada peta, atau 'Dunia' untuk menunjukkan semua gunung berapi aktif di seluruh dunia.",
-          "radius_km": "Hanya digunakan dalam mod 'Rumah' atau 'Tersuai'. Diabaikan dalam mod 'Dunia'."
+          "radius_km": "Julat: 50–20,000 km · 31–12,427 batu"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Unit jarak"
+        },
+        "data_description": {
+          "radius_km": "Julat: 50–20,000 km · 31–12,427 batu"
         }
       },
       "custom_location": {
