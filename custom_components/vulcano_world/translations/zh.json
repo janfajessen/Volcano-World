@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "选择“家庭”以根据您的 HA 位置进行筛选，“自定义”以在地图上选择点，或“世界”以显示全球所有活火山。",
-          "radius_km": "仅在“家庭”或“自定义”模式下使用。在“世界”模式下忽略。"
+          "radius_km": "范围：50–20,000 公里 · 31–12,427 英里"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "距离单位"
+        },
+        "data_description": {
+          "radius_km": "范围：50–20,000 公里 · 31–12,427 英里"
         }
       },
       "custom_location": {
