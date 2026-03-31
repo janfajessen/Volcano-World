@@ -14,7 +14,7 @@
         },
         "data_description": {
           "location_mode": "Alege 'Acasă' pentru a filtra după locația ta HA, 'Personalizat' pentru a selecta un punct pe hartă sau 'Lume' pentru a afișa toți vulcanii activi la nivel global.",
-          "radius_km": "Folosit doar în modul 'Acasă' sau 'Personalizat'. Ignorat în modul 'Lume'."
+          "radius_km": "Interval: 50–20.000 km · 31–12.427 mile"
         }
       },
       "custom_location": {
@@ -46,6 +46,9 @@
           "source_gvp": "Smithsonian GVP",
           "source_usgs": "USGS HANS",
           "unit": "Unitate de distanță"
+        },
+        "data_description": {
+          "radius_km": "Interval: 50–20.000 km · 31–12.427 mile"
         }
       },
       "custom_location": {
