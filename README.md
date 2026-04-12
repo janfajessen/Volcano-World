@@ -1,6 +1,6 @@
 # 🌋 Volcano World 🌋 <br> Home Assistant Integration
 
-<img src="https://raw.githubusercontent.com/janfajessen/Volcano-World----Home-Assistant-Integration/e884d2b81a68b9b99160982edcb07f35a255420c/Volcano_World.png" alt="Volcano World" width="400">
+<img src="https://github.com/janfajessen/Volcano-World/blob/76daa9ee24ca0d4b9e27bff34318d01607362da9/brands/logo%402x.png" alt="Volcano World" width="400">
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 [![HA Version](https://img.shields.io/badge/Home%20Assistant-2024.1+-blue.svg)](https://www.home-assistant.io)
