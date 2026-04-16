@@ -35,7 +35,7 @@ A Home Assistant integration that tracks active and erupting volcanoes worldwide
 | 🔄 Live data | Configurable update interval (15 min minimum) |
 | ⚙️ Reconfigure | Gear icon changes all settings without restarting HA |
 | 🌍 Built-in database | ~100 volcanoes with coordinates, country, and type |
-| 🌐 Multilingual | CA · DE · EN · ES · FR · IT · PT · ... |
+| 🌐 Multilingual | EN · ES · DE · CA · FR · IT · PT · +49 |
 
 ---
 
@@ -47,7 +47,7 @@ A Home Assistant integration that tracks active and erupting volcanoes worldwide
 4. Restart Home Assistant (first time only)
 5. **Settings → Devices & Services → Add Integration → "Volcano World"**
 
-<img src="https://raw.githubusercontent.com/janfajessen/Volcano-World----Home-Assistant-Integration/e884d2b81a68b9b99160982edcb07f35a255420c/Volcano_World.png" alt="Volcano World" width="100">
+<img src="brands/icon@2x.png" width="150"/>
 
 ## Manual Installation
 
